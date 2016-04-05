@@ -1,0 +1,23 @@
+{
+  "name": "auto-cec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-cec": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanhinish/auto-cec.git"
+  },
+  "author": "Nathan Hinish <nathan@tri.ad>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanhinish/auto-cec/issues"
+  },
+  "homepage": "https://github.com/nathanhinish/auto-cec#readme"
+}
