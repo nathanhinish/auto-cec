@@ -5,5 +5,7 @@ const client = new CECClient('boom')
 
 client.start()
 
+console.info(client)
+
 client.giveCecVersion()
 client.reportPowerStatus()
