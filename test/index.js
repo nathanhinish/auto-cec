@@ -13,7 +13,7 @@ let chars = 'Hello world'.split('').map((c) => {
   return c.charCodeAt(0)
 })
 console.info(chars.map((c) => {
-  return c.toString(16)
+  return c.toString(16).toUpperCase()
 }).join(':'))
 client.setOsdString(null, chars)
 
