@@ -163,7 +163,7 @@ module.exports = {
     'func-style': 0,
     'generator-star-spacing': 0,
     'global-require': 0,
-    'guard-for-in': 2,
+    'guard-for-in': 0,
     'handle-callback-err': 0,
     'id-length': 0,
     'id-match': 0,
