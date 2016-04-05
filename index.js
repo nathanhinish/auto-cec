@@ -5,10 +5,10 @@ const CEC = require('node-cec').CEC
 
 const cec = new NodeCec('monitor')
 
-cec.once( 'ready', ( client ) ->
+cec.once( 'ready', ( client ) => {
   console.log(' -- READY -- ')
   client.sendCommand( 0xf0, CEC.Opcode.GIVE_DEVICE_POWER_STATUS )
-)
+})
 
 // events from: http://www.cec-o-matic.com/
 cec.on( 'REPORT_POWER_STATUS', (packet, status) => {
