@@ -10,5 +10,8 @@ client.getCecVersion()
 client.reportPowerStatus()
 
 // F0:64:00:48:65:6C:6C:6F:20:77:6F:72:6C:64
-client.setOsdString(CEC.LogicalAddress.TV, 'Hello world'.split())
+let chars = 'Hello world'.split().map((c) => {
+  return c.charCodeAt(0)
+})
+client.setOsdString(null, chars)
 
