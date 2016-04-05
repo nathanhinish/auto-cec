@@ -14,11 +14,10 @@ cec.once('ready', (client) => {
 
 // events from: http://www.cec-o-matic.com/
 cec.on('REPORT_POWER_STATUS', (packet, status) => {
-  for (let ps of CEC.PowerStatus) {
-    let sName = ps.power_status_name
-    let s = ps.power_status
-    if (s === status) {
-      console.log(`POWER_STATUS: ${sName}`)
+  const Status = CEC.PowerStatus
+  for (let key in Status) {
+    if (key && Status[key] === status) {
+      console.log(`POWER_STATUS: ${key}`)
       break
     }
   }
