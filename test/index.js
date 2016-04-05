@@ -1,6 +1,5 @@
 'use strict'
 
-const CEC = require('node-cec').CEC
 const CECClient = require('../lib/CECClient')
 const client = new CECClient('cec-tester')
 
@@ -13,5 +12,8 @@ client.reportPowerStatus()
 let chars = 'Hello world'.split().map((c) => {
   return c.charCodeAt(0)
 })
+console.info(chars.map((c) => {
+  return c.toString(16)
+}).join(':'))
 client.setOsdString(null, chars)
 
