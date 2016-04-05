@@ -1,6 +1,7 @@
 'use strict'
 
-const { NodeCec, CEC } = require( 'node-cec' )
+const NodeCec = require('node-cec').NodeCec
+const CEC = require('node-cec').CEC
 
 const cec = new NodeCec('monitor')
 
