@@ -1,11 +1,12 @@
+/* eslint camelcase: 0 */
 'use strict'
 
 const expect = require('expect')
 const sinon = require('sinon')
 
-const ClientProxy = require('../common/ClientProxy')
+const CECClient = require('../../lib/CECClient')
 
-const Commands = require('../../lib/CECClient').Commands
+const Commands = CECClient.Commands
 const LogicalAddress = CECClient.LogicalAddress
 const InverseOpcode = CECClient.InverseOpcode
 
@@ -13,18 +14,8 @@ const BASE_16 = 16
 const MESSAGE = 'Hello world'
 const MSG_HEX = '48:65:6C:6C:6F:20:77:6F:72:6C:64'
 
-const proxy = new ClientProxy()
-
-describe('#setOsdString', function() {
-
-  before(function before(done) {
-    proxy.create(done)
-  })
-
-  after(function after(done) {
-    proxy.destroy(done)
-  })
-
+module.exports = function test_setOsdString(client) {
+  // F0:64:00:48:65:6C:6C:6F:20:77:6F:72:6C:64
   let chars = MESSAGE.split('').map((c) => c.charCodeAt(0))
 
   it('should exist', function () {
@@ -45,5 +36,4 @@ describe('#setOsdString', function() {
     client.setOsdString(LogicalAddress.TV, chars)
     setTimeout(done, 4000)
   })
-
-})
+}
