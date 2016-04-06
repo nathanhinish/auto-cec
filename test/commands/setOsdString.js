@@ -5,7 +5,8 @@ const sinon = require('sinon')
 
 const ClientProxy = require('../common/ClientProxy')
 
-const Commands = require('../../lib/CECClient').Commands
+const CECClient = require('../../lib/CECClient')
+const Commands = CECClient.Commands
 const LogicalAddress = CECClient.LogicalAddress
 const InverseOpcode = CECClient.InverseOpcode
 
