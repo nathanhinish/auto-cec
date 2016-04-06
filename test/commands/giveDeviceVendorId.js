@@ -28,10 +28,8 @@ describe.only('#giveDeviceVendorId', function() {
   })
 
   it('should get response', function (done) {
-    let callback = sinon.spy()
-    proxy.target.on('DEVICE_VENDOR_ID', callback)
+    proxy.target.on('DEVICE_VENDOR_ID', done)
     proxy.target.giveDeviceVendorId()
-    expect(callback.called).toBe(true)
   })
 
 })
