@@ -34,6 +34,6 @@ describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function 
       debug(packet)
       setTimeout(done, 5000)
     })
-    proxy.target.giveDeviceVendorId()
+    proxy.target.giveDeviceVendorId(5)
   })
 })
