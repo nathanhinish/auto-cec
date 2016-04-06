@@ -28,12 +28,13 @@ describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function 
     expect(Handlers.deviceVendorId).toExist('Handlers.deviceVendorId is not defined')
   })
 
-  it('Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
-    this.timeout(10000)
-    proxy.target.on('DEVICE_VENDOR_ID', (packet) => {
-      debug(packet)
-      setTimeout(done, 5000)
-    })
+  it('AUDIOSYSTEM: Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
+    proxy.target.on('DEVICE_VENDOR_ID', () => done())
     proxy.target.giveDeviceVendorId(5)
+  })
+
+  it('TV: Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
+    proxy.target.on('DEVICE_VENDOR_ID', () => done())
+    proxy.target.giveDeviceVendorId(0)
   })
 })
