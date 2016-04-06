@@ -8,13 +8,8 @@ const handlerTestSuites = glob.sync('handlers/*.js', {cwd: __dirname})
 // const AFTER_TIMEOUT = 60000
 
 describe('CECClient', () => {
-  describe('Commands', function () {
-    commandTestSuites.forEach((file) => require(`./${file}`))
-  })
-
-  describe('Handlers', function () {
-    handlerTestSuites.forEach((file) => require(`./${file}`))
-  })
+  commandTestSuites.forEach((file) => require(`./${file}`))
+  handlerTestSuites.forEach((file) => require(`./${file}`))
 
   describe('util', function () {
     require('./util/reduceArgsBytes')
