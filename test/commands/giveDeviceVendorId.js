@@ -28,7 +28,7 @@ describe.only('#giveDeviceVendorId', function() {
   })
 
   it('should get response', function (done) {
-    proxy.target.on('DEVICE_VENDOR_ID', done)
+    proxy.target.on('DEVICE_VENDOR_ID', () => done())
     proxy.target.giveDeviceVendorId()
   })
 
