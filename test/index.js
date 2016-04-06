@@ -11,9 +11,9 @@ const handlerKeys = keys(handlerTests)
 
 const AFTER_TIMEOUT = 60000
 
-describe('CECClient', () => {
-  let client
+let client
 
+describe('CECClient', () => {
   before((done) => {
     client = new CECClient('cec-tester')
     client.start(done)
