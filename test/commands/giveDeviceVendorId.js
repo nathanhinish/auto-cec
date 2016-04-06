@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('cec:test:commands:giveDeviceVendorId')
 const expect = require('expect')
 const sinon = require('sinon')
 
@@ -29,11 +30,11 @@ describe.only('#giveDeviceVendorId', function() {
   it('should get response', function (done) {
     this.timeout(6000)
     proxy.target.on('packet', function (packet) {
-      console.info('PACKET', JSON.stringify(packet))
+      debug('PACKET', JSON.stringify(packet))
     })
 
     proxy.target.on(InverseOpcode.DEVICE_VENDOR_ID, function (packet) {
-      console.info('DEVICE_VENDOR_ID', this, JSON.stringify(packet))
+      debug('DEVICE_VENDOR_ID', this, JSON.stringify(packet))
       setTimeout(() => {
         expect(1).toBe(1)
         done()
