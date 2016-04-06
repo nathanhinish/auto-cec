@@ -12,16 +12,13 @@ const handlerKeys = keys(handlerTests)
 describe('CECClient', () => {
   let client
 
-  beforeEach(function(done) {
+  beforeEach(function beforeEach(done) {
     client = new CECClient('cec-tester')
-    // client.cec.once('ready', done)
-    // client.start()
-    done()
+    client.start(done)
   })
 
-  afterEach(function(done) {
-    // client.close(done)
-    done()
+  afterEach(function afterEach(done) {
+    client.stop(done)
   })
 
   describe('Commands', function () {
