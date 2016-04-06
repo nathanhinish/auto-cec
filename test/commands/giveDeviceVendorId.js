@@ -9,7 +9,7 @@ const Commands = require('../../lib/CECClient').Commands
 
 const proxy = new ClientProxy()
 
-describe('#giveDeviceVendorId', function() {
+describe.only('#giveDeviceVendorId', function() {
 
   before(function before(done) {
     proxy.create(done)
@@ -21,6 +21,18 @@ describe('#giveDeviceVendorId', function() {
 
   it('should exist', function() {
     expect(Commands.giveDeviceVendorId).toExist('Commands.giveDeviceVendorId is not defined')
+  })
+
+  it('should get response', function(done) {
+    proxy.target.on('packet', function (packet) {
+      console.info(packet)
+      setTimeout(() => {
+        expect(1).toBe(1)
+        done()
+      }, 5000)
+    })
+
+    proxy.target.giveDeviceVendorId()
   })
 
 })

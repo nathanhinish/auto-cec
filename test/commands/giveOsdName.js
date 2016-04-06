@@ -23,4 +23,13 @@ describe('#giveOsdName', function() {
     expect(Commands.giveOsdName).toExist('Commands.giveOsdName is not defined')
   })
 
+  it('should get response', function(done) {
+    proxy.target.on('packet', function (packet) {
+      console.info(packet)
+      setTimeout(done, 5000)
+    })
+
+    proxy.target.giveOsdName()
+  })
+
 })
