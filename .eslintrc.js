@@ -18,7 +18,9 @@ module.exports = {
     'node': true,
     'mocha': true
   },
-  'globals': {},
+  'globals': {
+    'expect': true
+  },
   'rules': {
     'linebreak-style': 0,
     'no-alert': 2,

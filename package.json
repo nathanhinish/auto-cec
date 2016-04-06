@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "debug": "^2.2.0",
     "lodash": "^4.8.2",
     "node-cec": "^0.1.1",
     "require-dir": "^0.3.0"
   },
   "devDependencies": {
-    "fs-extra": "^0.26.7"
+    "expect": "^1.16.0",
+    "fs-extra": "^0.26.7",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/index.js"
   },
   "repository": {
     "type": "git",

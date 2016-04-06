@@ -1,27 +1,43 @@
 'use strict'
 
-const snakeCase = require('lodash/snakeCase')
+const keys = require('lodash/keys')
+const commandTests = require('require-dir')('./commands')
+const handlerTests = require('require-dir')('./handlers')
+
 const CECClient = require('../lib/CECClient')
-const client = new CECClient('cec-tester')
 
-const TEST_DELAY = 5000
+const commandKeys = keys(commandTests)
+const handlerKeys = keys(handlerTests)
 
-client.start()
+describe('CECClient', () => {
+  let client
 
-// client.getCecVersion()
-// client.reportPowerStatus()
-
-function testSetOsdString() {
-  console.info(`testing ${snakeCase('setOsdString')} command`)
-  // F0:64:00:48:65:6C:6C:6F:20:77:6F:72:6C:64
-  let chars = 'Hello world'.split('').map((c) => {
-    return c.charCodeAt(0)
+  beforeEach(function(done) {
+    client = new CECClient('cec-tester')
+    // client.cec.once('ready', done)
+    // client.start()
+    done()
   })
-  console.info(chars.map((c) => {
-    return c.toString(16).toUpperCase()
-  }).join(':'))
-  client.setOsdString(CECClient.LogicalAddress.TV, chars)
-}
 
-client.cec.once('ready', testSetOsdString)
+  afterEach(function(done) {
+    // client.close(done)
+    done()
+  })
+
+  describe('Commands', function () {
+    commandKeys.forEach((key) => {
+      describe(`Commands#${key}`, function () {
+        commandTests[key](client)
+      })
+    })
+  })
+
+  describe('Handlers', function () {
+    handlerKeys.forEach((key) => {
+      describe(`Handlers#${key}`, function () {
+        handlerTests[key](client)
+      })
+    })
+  })
+})
 

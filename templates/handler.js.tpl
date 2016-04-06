@@ -1,7 +1,8 @@
 'use strict'
 
-const CEC = require('node-cec').CEC
+const debug = require('debug')('cec:handler:<%= original %>')
 
 module.exports = function <%= camel %>(packet) {
-  console.info('<%= original %>', packet)
+  debug('<%= original %>', packet)
+  this.emit('<%= original %>', packet)
 }
