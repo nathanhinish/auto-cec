@@ -20,7 +20,7 @@ describe('CECClient', () => {
   })
 
   after(function after(done) {
-    this.timeout(AFTER_TIMEOUT)
+    this.timeout(AFTER_TIMEOUT) // eslint-disable-line
     client.stop(done)
   })
 
