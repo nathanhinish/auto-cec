@@ -4,7 +4,10 @@
 const expect = require('expect')
 const sinon = require('sinon')
 
-const Commands = require('../../lib/CECClient').Commands
+const CECClient = require('../../lib/CECClient')
+
+const Commands = CECClient.Commands
+const LogicalAddress = CECClient.LogicalAddress
 
 const BASE_16 = 16
 const MESSAGE = 'Hello world'
@@ -23,10 +26,11 @@ module.exports = function test_setOsdString(client) {
     expect(str).toBe(MSG_HEX)
   })
 
-  // it('should get a return message', (done) => {
-  //   client.cec.on('packet', function(packet) {
-  //     expect(packet.opcode).toBe()
-  //   })
-  //   client.setOsdString(CECClient.LogicalAddress.TV, chars)
-  // })
+  it('should get a return message', (done) => {
+    client.cec.on('packet', function onPacket(packet) {
+      expect(packet.opcode).toBe(CECClient.Opcode.SET_OSD_STRING)
+      done()
+    })
+    client.setOsdString(CECClient.LogicalAddress.TV, chars)
+  })
 }
