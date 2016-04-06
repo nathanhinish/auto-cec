@@ -35,15 +35,13 @@ describe.only('#giveDeviceVendorId', function() {
       debug('PACKET', JSON.stringify(packet))
     })
 
-    proxy.target.on(InverseOpcode.DEVICE_VENDOR_ID, function (packet) {
-      debug('DEVICE_VENDOR_ID', this, JSON.stringify(packet))
+    proxy.target.on('DEVICE_VENDOR_ID', function (packet) {
+      debug('DEVICE_VENDOR_ID', JSON.stringify(packet))
       setTimeout(() => {
         expect(1).toBe(1)
         done()
       }, 5000)
     })
-    global.c = proxy.target
-
     proxy.target.giveDeviceVendorId()
   })
 
