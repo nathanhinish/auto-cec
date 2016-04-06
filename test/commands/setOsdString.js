@@ -8,6 +8,7 @@ const CECClient = require('../../lib/CECClient')
 
 const Commands = CECClient.Commands
 const LogicalAddress = CECClient.LogicalAddress
+const InverseOpcode = CECClient.InverseOpcode
 
 const BASE_16 = 16
 const MESSAGE = 'Hello world'
@@ -27,10 +28,12 @@ module.exports = function test_setOsdString(client) {
   })
 
   it('should get a return message', (done) => {
-    client.cec.on('packet', function onPacket(packet) {
-      expect(packet.opcode).toBe(CECClient.Opcode.SET_OSD_STRING)
-      done()
-    })
-    client.setOsdString(CECClient.LogicalAddress.TV, chars)
+    // const callback = sinon.spy()
+    // client.cec.on(InverseOpcode., function onPacket(packet) {
+    //   expect(packet.opcode).toBe(CECClient.Opcode.SET_OSD_STRING)
+    //   done()
+    // })
+    client.setOsdString(LogicalAddress.TV, chars)
+    setTimeout(done, 4000)
   })
 }
