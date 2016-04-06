@@ -11,7 +11,7 @@ const Handlers = CECClient.Handlers
 
 const proxy = new ClientProxy()
 
-describe('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function () {
+describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function () {
   before(function before(done) {
     proxy.create(done)
   })
