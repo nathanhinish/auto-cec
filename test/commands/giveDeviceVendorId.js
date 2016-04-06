@@ -40,6 +40,7 @@ describe.only('#giveDeviceVendorId', function() {
         done()
       }, 5000)
     })
+    global.c = proxy.target
 
     proxy.target.giveDeviceVendorId()
   })
