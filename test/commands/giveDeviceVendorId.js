@@ -20,20 +20,20 @@ describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function 
     proxy.destroy(done)
   })
 
-  it('Commands.giveDeviceVendorId should exist', function () {
+  it('command should exist', function () {
     expect(Commands.giveDeviceVendorId).toExist('Commands.giveDeviceVendorId is not defined')
   })
 
-  it('Handlers.deviceVendorId should exist', function () {
+  it('handler should exist', function () {
     expect(Handlers.deviceVendorId).toExist('Handlers.deviceVendorId is not defined')
   })
 
-  it('AUDIOSYSTEM: Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
+  it('AUDIOSYSTEM response', function (done) {
     proxy.target.on('DEVICE_VENDOR_ID', () => done())
     proxy.target.giveDeviceVendorId(5)
   })
 
-  it('TV: Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
+  it('TV response', function (done) {
     proxy.target.on('DEVICE_VENDOR_ID', () => done())
     proxy.target.giveDeviceVendorId(0)
   })
