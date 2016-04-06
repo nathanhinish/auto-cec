@@ -23,5 +23,5 @@ function testSetOsdString() {
   client.setOsdString(CECClient.LogicalAddress.TV, chars)
 }
 
-client.cec.on('ready', testSetOsdString)
+client.cec.once('ready', testSetOsdString)
 
