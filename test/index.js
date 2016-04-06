@@ -24,7 +24,7 @@ describe('CECClient', () => {
   })
 
   describe('Commands#setOsdString', function () {
-    commandTests.test_setOsdString(client)
+    commandTests.setOsdString(client)
   })
 
   // describe('Commands', function () {
