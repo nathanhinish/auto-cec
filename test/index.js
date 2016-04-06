@@ -17,16 +17,19 @@ describe('CECClient', () => {
   before((done) => {
     client = new CECClient('cec-tester')
     client.start(done)
+    console.info('before', client)
   })
 
   after((done) => {
     client.stop(done)
     client = null
+    console.info('after', client)
   })
 
   describe('Commands', function () {
+    console.info('test', client)
     describe('Commands#setOsdString', function () {
-      console.info(client)
+      console.info('test 2', client)
       commandTests.setOsdString(client)
     })
   })
