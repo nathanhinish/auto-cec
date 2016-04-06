@@ -23,20 +23,24 @@ describe('CECClient', () => {
     client.stop(done)
   })
 
-  describe('Commands', function () {
-    commandKeys.forEach((key) => {
-      describe(`Commands#${key}`, function () {
-        commandTests[key](client)
-      })
-    })
+  describe('Commands#setOsdString', function () {
+    commandTests.test_setOsdString(client)
   })
 
-  describe('Handlers', function () {
-    handlerKeys.forEach((key) => {
-      describe(`Handlers#${key}`, function () {
-        handlerTests[key](client)
-      })
-    })
-  })
+  // describe('Commands', function () {
+  //   commandKeys.forEach((key) => {
+  //     describe(`Commands#${key}`, function () {
+  //       commandTests[key](client)
+  //     })
+  //   })
+  // })
+
+  // describe('Handlers', function () {
+  //   handlerKeys.forEach((key) => {
+  //     describe(`Handlers#${key}`, function () {
+  //       handlerTests[key](client)
+  //     })
+  //   })
+  // })
 })
 
