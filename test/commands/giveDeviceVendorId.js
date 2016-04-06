@@ -12,7 +12,7 @@ const InverseOpcode = CECClient.InverseOpcode
 
 const proxy = new ClientProxy()
 
-describe('#giveDeviceVendorId', function() {
+describe.only('#giveDeviceVendorId', function() {
 
   before(function before(done) {
     proxy.create(done)
