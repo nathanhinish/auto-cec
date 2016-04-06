@@ -14,17 +14,19 @@ const AFTER_TIMEOUT = 60000
 describe('CECClient', () => {
   let client
 
-  before(function before(done) {
+  before((done) => {
     client = new CECClient('cec-tester')
     client.start(done)
   })
 
-  after(function after(done) {
+  after((done) => {
     client.stop(done)
+    client = null
   })
 
   describe('Commands', function () {
     describe('Commands#setOsdString', function () {
+      console.info(client)
       commandTests.setOsdString(client)
     })
   })
