@@ -11,8 +11,6 @@ const Commands = CECClient.Commands
 const Opcode = CECClient.Opcode
 const InverseOpcode = CECClient.InverseOpcode
 
-debug(InverseOpcode)
-
 const proxy = new ClientProxy()
 
 describe.only('#giveDeviceVendorId', function() {
