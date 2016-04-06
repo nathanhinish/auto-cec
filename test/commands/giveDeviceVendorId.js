@@ -28,19 +28,10 @@ describe.only('#giveDeviceVendorId', function() {
   })
 
   it('should get response', function (done) {
-    this.timeout(6000)
-    proxy.target.on('packet', function (packet) {
-      debug('PACKET', JSON.stringify(packet))
-    })
-
-    proxy.target.on('DEVICE_VENDOR_ID', function (packet) {
-      debug('DEVICE_VENDOR_ID', JSON.stringify(packet))
-      setTimeout(() => {
-        expect(1).toBe(1)
-        done()
-      }, 5000)
-    })
+    let callback = sinon.spy()
+    proxy.target.on('DEVICE_VENDOR_ID', callback)
     proxy.target.giveDeviceVendorId()
+    expect(callback.called).toBe(true)
   })
 
 })
