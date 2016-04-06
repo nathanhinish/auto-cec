@@ -27,9 +27,10 @@ describe.only('#giveOsdName', function () {
   it('should get response', function (done) {
     proxy.target.on('SET_OSD_NAME', (packet) => {
       let args = packet.args
-      debug(JSON.stringify(packet))
-      if (args) {
-        debug(String.fromCharCode.apply(String, args))
+      let source = packet.source
+      if (source === LogicalAddress.AUDIOSYSTEM && args) {
+        let osdName = String.fromCharCode.apply(String, args)
+        expect(osdName).toBe('RECEIVER')
       }
       done()
     })
