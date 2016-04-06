@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('cec:test:commands:giveDeviceVendorId')
+const debug = require('debug')('cec:test:commands:giveOsdName')
 const expect = require('expect')
 
 const ClientProxy = require('../common/ClientProxy')
