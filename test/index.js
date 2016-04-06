@@ -15,5 +15,9 @@ describe('CECClient', () => {
   describe('Handlers', function () {
     handlerTestSuites.forEach((file) => require(`./${file}`))
   })
+
+  describe('util', function () {
+    require('./util/reduceArgsBytes')
+  })
 })
 
