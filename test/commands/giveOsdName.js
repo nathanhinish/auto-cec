@@ -11,7 +11,7 @@ const LogicalAddress = CECClient.LogicalAddress
 
 const proxy = new ClientProxy()
 
-describe('#giveOsdName', function () {
+describe.only('#giveOsdName', function () {
   before(function before(done) {
     proxy.create(done)
   })
