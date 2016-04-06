@@ -42,7 +42,7 @@ describe('#setOsdString', function() {
     //   expect(packet.opcode).toBe(CECClient.Opcode.SET_OSD_STRING)
     //   done()
     // })
-    client.setOsdString(LogicalAddress.TV, chars)
+    proxy.target.setOsdString(LogicalAddress.TV, chars)
     setTimeout(done, 4000)
   })
 
