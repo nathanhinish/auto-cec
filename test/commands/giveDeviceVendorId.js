@@ -8,6 +8,7 @@ const ClientProxy = require('../common/ClientProxy')
 const CECClient = require('../../lib/CECClient')
 const Commands = CECClient.Commands
 
+
 const proxy = new ClientProxy()
 
 describe('#giveDeviceVendorId', function () {

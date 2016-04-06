@@ -1,16 +1,17 @@
 'use strict'
 
+const debug = require('debug')('cec:test:commands:giveDeviceVendorId')
 const expect = require('expect')
-const sinon = require('sinon')
 
 const ClientProxy = require('../common/ClientProxy')
 
-const Commands = require('../../lib/CECClient').Commands
+const CECClient = require('../../lib/CECClient')
+const Commands = CECClient.Commands
+const LogicalAddress = CECClient.LogicalAddress
 
 const proxy = new ClientProxy()
 
-describe('#giveOsdName', function() {
-
+describe('#giveOsdName', function () {
   before(function before(done) {
     proxy.create(done)
   })
@@ -19,17 +20,15 @@ describe('#giveOsdName', function() {
     proxy.destroy(done)
   })
 
-  it('should exist', function() {
+  it('should exist', function () {
     expect(Commands.giveOsdName).toExist('Commands.giveOsdName is not defined')
   })
 
-  it('should get response', function(done) {
-    proxy.target.on('packet', function (packet) {
-      console.info(packet)
-      setTimeout(done, 5000)
+  it('should get response', function (done) {
+    proxy.target.on('SET_OSD_NAME', (packet) => {
+      debug(JSON.stringify(packet))
+      done()
     })
-
-    proxy.target.giveOsdName()
+    proxy.target.giveOsdName(LogicalAddress.AUDIOSYSTEM)
   })
-
 })
