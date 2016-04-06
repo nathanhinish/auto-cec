@@ -16,7 +16,7 @@ const MSG_HEX = '48:65:6C:6C:6F:20:77:6F:72:6C:64'
 
 const proxy = new ClientProxy()
 
-describe('#setOsdString', function() {
+describe.only('#setOsdString', function() {
 
   before(function before(done) {
     proxy.create(done)
