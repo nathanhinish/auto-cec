@@ -9,6 +9,8 @@ const CECClient = require('../lib/CECClient')
 const commandKeys = keys(commandTests)
 const handlerKeys = keys(handlerTests)
 
+const AFTER_TIMEOUT = 60000
+
 describe('CECClient', () => {
   let client
 
@@ -18,6 +20,7 @@ describe('CECClient', () => {
   })
 
   after(function after(done) {
+    this.timeout(AFTER_TIMEOUT)
     client.stop(done)
   })
 
