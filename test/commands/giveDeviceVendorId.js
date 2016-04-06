@@ -2,19 +2,15 @@
 
 const debug = require('debug')('cec:test:commands:giveDeviceVendorId')
 const expect = require('expect')
-const sinon = require('sinon')
 
 const ClientProxy = require('../common/ClientProxy')
 
 const CECClient = require('../../lib/CECClient')
 const Commands = CECClient.Commands
-const Opcode = CECClient.Opcode
-const InverseOpcode = CECClient.InverseOpcode
 
 const proxy = new ClientProxy()
 
-describe.only('#giveDeviceVendorId', function() {
-
+describe('#giveDeviceVendorId', function () {
   before(function before(done) {
     proxy.create(done)
   })
@@ -23,7 +19,7 @@ describe.only('#giveDeviceVendorId', function() {
     proxy.destroy(done)
   })
 
-  it('should exist', function() {
+  it('should exist', function () {
     expect(Commands.giveDeviceVendorId).toExist('Commands.giveDeviceVendorId is not defined')
   })
 
@@ -31,5 +27,4 @@ describe.only('#giveDeviceVendorId', function() {
     proxy.target.on('DEVICE_VENDOR_ID', () => done())
     proxy.target.giveDeviceVendorId()
   })
-
 })
