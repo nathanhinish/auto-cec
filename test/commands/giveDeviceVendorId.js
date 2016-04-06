@@ -30,10 +30,6 @@ describe.only('#giveDeviceVendorId', function() {
     this.timeout(6000)
     proxy.target.on('packet', function (packet) {
       console.info('PACKET', JSON.stringify(packet))
-      setTimeout(() => {
-        expect(1).toBe(1)
-        done()
-      }, 5000)
     })
 
     proxy.target.on(InverseOpcode.DEVICE_VENDOR_ID, function (packet) {
