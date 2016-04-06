@@ -20,10 +20,6 @@ describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function 
     proxy.destroy(done)
   })
 
-  it('should exist', function () {
-    expect(Commands.giveDeviceVendorId).toExist('Commands.giveDeviceVendorId is not defined')
-  })
-
   it('Commands.giveDeviceVendorId should exist', function () {
     expect(Commands.giveDeviceVendorId).toExist('Commands.giveDeviceVendorId is not defined')
   })
@@ -32,8 +28,12 @@ describe.only('Commands.giveDeviceVendorId & Handlers.deviceVendorId', function 
     expect(Handlers.deviceVendorId).toExist('Handlers.deviceVendorId is not defined')
   })
 
-  it('Commands.giveDeviceVendorId should get a Handlers.deviceVendorId response', function (done) {
-    proxy.target.on('DEVICE_VENDOR_ID', () => done())
+  it('Commands.giveDeviceVendorId -> Handlers.deviceVendorId', function (done) {
+    this.timeout(10000)
+    proxy.target.on('DEVICE_VENDOR_ID', (packet) => {
+      debug(packet)
+      setTimeout(done, 5000)
+    })
     proxy.target.giveDeviceVendorId()
   })
 })
