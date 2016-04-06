@@ -16,7 +16,7 @@
     "sinon": "^1.17.3"
   },
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha --reporter dot test/index.js"
   },
   "repository": {
     "type": "git",
