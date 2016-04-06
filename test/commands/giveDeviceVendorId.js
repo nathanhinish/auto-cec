@@ -24,8 +24,9 @@ describe.only('#giveDeviceVendorId', function() {
   })
 
   it('should get response', function(done) {
+    this.timeout(6000)
     proxy.target.on('packet', function (packet) {
-      console.info(packet)
+      console.info('PACKET', JSON.stringify(packet))
       setTimeout(() => {
         expect(1).toBe(1)
         done()
