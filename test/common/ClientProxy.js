@@ -12,6 +12,7 @@ function ClientProxy() {
 
   this.destroy = function destroy(done) {
     client.stop(done)
+    client.removeAllListeners()
     client = null
   }
 
