@@ -26,7 +26,11 @@ describe('#giveOsdName', function () {
 
   it('should get response', function (done) {
     proxy.target.on('SET_OSD_NAME', (packet) => {
+      let args = packet.args
       debug(JSON.stringify(packet))
+      if (args) {
+        debug(String.fromCharCode.apply(String, args))
+      }
       done()
     })
     proxy.target.giveOsdName(LogicalAddress.AUDIOSYSTEM)
