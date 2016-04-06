@@ -14,13 +14,12 @@ const AFTER_TIMEOUT = 60000
 describe('CECClient', () => {
   let client
 
-  before(function before(done) {
+  beforeEach(function beforeEach(done) {
     client = new CECClient('cec-tester')
     client.start(done)
   })
 
-  after(function after(done) {
-    // this.timeout(AFTER_TIMEOUT) // eslint-disable-line
+  afterEach(function afterEach(done) {
     client.stop(done)
   })
 
