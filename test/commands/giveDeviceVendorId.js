@@ -33,7 +33,7 @@ describe.only('#giveDeviceVendorId', function() {
     })
 
     proxy.target.on(InverseOpcode.DEVICE_VENDOR_ID, function (packet) {
-      console.info('DEVICE_VENDOR_ID', JSON.stringify(packet))
+      console.info('DEVICE_VENDOR_ID', this, JSON.stringify(packet))
       setTimeout(() => {
         expect(1).toBe(1)
         done()
